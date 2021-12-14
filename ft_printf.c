@@ -6,11 +6,12 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:58:31 by ludovictrom       #+#    #+#             */
-/*   Updated: 2021/12/07 20:10:12 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2021/12/14 11:06:41 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
+#include "ft_printf.h"
 
 /* -------------------------------------------------------------------------- */
 /*                                  ARGUMENTS:                                */
@@ -49,12 +50,47 @@
 /* ----- Si une erreur de sortie s'est produite, une valeur négative est ---- */
 /* -------------------------------- renvoyée. ------------------------------- */
 
-ft_printf(const char *s)
+/* -------------------------------------------------------------------------- */
+/*                        fonctions externes autorisées:                      */
+/* --------- malloc, free, write, va_start, va_arg, va_copy, va_end --------- */
+/* -------------------------------------------------------------------------- */
+
+char	ft_pourcent_c (char c)
 {
+	write(1, &c, 1);
+	return (0);
+}
+
+int ft_detect_pourcent (char s)
+{
+	if (s == 'c')
+		return (0);
+	else if (s == 'd' || s == 'i')
 	
+	if (s == 's')
+}
+
+int	ft_printf(const char *s, ...)
+{
+	int	i;
+	char	*str;
+
+	str = (char*) s;
+	i = 0;
+	while (s[i] && s[i] != '%')
+	{
+		write(1, s + i, 1);
+		i++;
+	}
+	if (s[i] == '%')
+	{
+		ft_detect_pourcent((*(char *)s + i) + 1);
+	}
+	return (0);
 }
 
 int main(void)
 {
-	
+	char s[] = "Salut %c";
+	ft_printf(s);
 }
