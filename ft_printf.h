@@ -6,12 +6,14 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 10:06:02 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/01/19 15:38:05 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/01/19 15:55:15 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINT_H
 # define FT_PRINT_H
+
+# include "libft/libft.h"
 
 # include <stdarg.h>
 # include <stdlib.h>
