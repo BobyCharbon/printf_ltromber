@@ -6,13 +6,15 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:58:31 by ludovictrom       #+#    #+#             */
-/*   Updated: 2021/12/14 11:06:41 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/01/19 15:39:33 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "ft_printf.h"
+#include <stdarg.h>
 
+// caractères : cspdiuxX%
 /* -------------------------------------------------------------------------- */
 /*                                  ARGUMENTS:                                */
 /* -------------------------------------------------------------------------- */
@@ -55,42 +57,61 @@
 /* --------- malloc, free, write, va_start, va_arg, va_copy, va_end --------- */
 /* -------------------------------------------------------------------------- */
 
-char	ft_pourcent_c (char c)
+int	ft_print_by_value (char *s, va_list *arg_ptr)
 {
-	write(1, &c, 1);
-	return (0);
-}
-
-int ft_detect_pourcent (char s)
-{
-	if (s == 'c')
-		return (0);
-	else if (s == 'd' || s == 'i')
+	int tokensize;
 	
-	if (s == 's')
+	tokensize = 2;
+	s++;
+	if (*s == 'c')
+		ft_print_c(va_arg(*arg_ptr, char));  
+	if (*s == 's')
+		ft_print_s(va_arg(*arg_ptr, char *));  
+	if (*s == 'd' || *s == 'i')
+		ft_print_d(va_arg(*arg_ptr, int));
+	if (*s == 'u')
+		ft_print_u(va_arg(*arg_ptr, unsigned));
+	if (*s == 'x')
+		ft_print_x(va_arg(*arg_ptr, int));
+	if (*s == 'X')
+		ft_print_xmaj(va_arg(*arg_ptr, int));
+	return (tokensize);
 }
 
 int	ft_printf(const char *s, ...)
 {
-	int	i;
-	char	*str;
-
-	str = (char*) s;
+	int		i;
+	int	tokensize;
+	int max;
+	max = 100;
+	va_list arg_ptr;
+	va_start(arg_ptr, max);                                                      
 	i = 0;
-	while (s[i] && s[i] != '%')
+	while (s[i])
 	{
-		write(1, s + i, 1);
-		i++;
+		if (s[i] != '%' && s[i] != '\\')
+			write(1, s + i++, 1);
+		if (s[i] == '%')
+			i = i + ft_print_by_value(&s[i], &arg_ptr);
 	}
-	if (s[i] == '%')
-	{
-		ft_detect_pourcent((*(char *)s + i) + 1);
-	}
+	va_end(arg_ptr);
 	return (0);
 }
 
-int main(void)
-{
-	char s[] = "Salut %c";
-	ft_printf(s);
-}
+// int main(void)
+// {
+// 	char s[] = "|Bonjour|";
+// 	char s1[] = "|Tout le monde|";
+// 	char c = 'a';
+// 	int d = 5555;
+// 	int i = 5555;
+// 	unsigned u = 5555;
+// 	int x = 545454;
+// 	// int u = 3543435;
+// 	// printf ("%d\n", '\0');
+// 	// ft_printf("MOI: %s %s %c %d %i \n", s, s1, c, d, i);
+// 	// ft_printf("MOI: %s %s %c %d %i %u \n", s, s1, c, d, i, u);
+// 	// printf("VRAI:%s %s %c %d %i %u \n", s, s1, c, d, i, u);
+// 	ft_printf("MOI: %X \n", x);
+// 	printf("VRAI:%X \n", x);
+// }

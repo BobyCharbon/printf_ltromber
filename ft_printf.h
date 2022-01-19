@@ -6,14 +6,24 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 10:06:02 by ludovictrom       #+#    #+#             */
-/*   Updated: 2021/12/14 10:49:21 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/01/19 15:38:05 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINT_H
 # define FT_PRINT_H
-#include <stdarg.h>
 
-int		ft_printf(const char*s, ...);
+# include <stdarg.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <stddef.h>
+
+int	ft_printf(const char*s, ...);
+void	ft_print_c(char c);
+void	ft_print_s(char *s);
+void	ft_print_d(int d);
+void	ft_print_u(unsigned u);
+void	ft_print_x(int x);
+void	ft_print_xmaj(int x);
 
 #endif
