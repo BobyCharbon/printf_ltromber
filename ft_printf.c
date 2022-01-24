@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:58:31 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/01/19 15:39:33 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/01/21 15:53:48 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,10 @@ int	ft_print_by_value (char *s, va_list *arg_ptr)
 		ft_print_x(va_arg(*arg_ptr, int));
 	if (*s == 'X')
 		ft_print_xmaj(va_arg(*arg_ptr, int));
+	if (*s == 'p')
+		ft_print_p(va_arg(*arg_ptr, void *));
+	if (*s == '%')
+		ft_print_c(*s);
 	return (tokensize);
 }
 
@@ -98,20 +102,22 @@ int	ft_printf(const char *s, ...)
 	return (0);
 }
 
-// int main(void)
-// {
+int main(void)
+{
 // 	char s[] = "|Bonjour|";
 // 	char s1[] = "|Tout le monde|";
 // 	char c = 'a';
 // 	int d = 5555;
 // 	int i = 5555;
 // 	unsigned u = 5555;
-// 	int x = 545454;
-// 	// int u = 3543435;
+	// int d = 545454;
+	int x = 545454;
+	// int u = 5454663543435;
 // 	// printf ("%d\n", '\0');
 // 	// ft_printf("MOI: %s %s %c %d %i \n", s, s1, c, d, i);
 // 	// ft_printf("MOI: %s %s %c %d %i %u \n", s, s1, c, d, i, u);
 // 	// printf("VRAI:%s %s %c %d %i %u \n", s, s1, c, d, i, u);
-// 	ft_printf("MOI: %X \n", x);
-// 	printf("VRAI:%X \n", x);
-// }
+	ft_printf("MOI: %p %x \n", &x, &x);
+	printf("VRAI:%p %x \n", &x, &x);
+}
+
