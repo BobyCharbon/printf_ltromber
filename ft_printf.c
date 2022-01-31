@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:58:31 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/01/21 15:53:48 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/01/31 13:50:25 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,49 +60,54 @@
 int	ft_print_by_value (char *s, va_list *arg_ptr)
 {
 	int tokensize;
-	
-	tokensize = 2;
+	tokensize = 0;
 	s++;
 	if (*s == 'c')
-		ft_print_c(va_arg(*arg_ptr, char));  
+		tokensize = ft_print_c((va_arg(*arg_ptr, int)));  
 	if (*s == 's')
-		ft_print_s(va_arg(*arg_ptr, char *));  
+		tokensize = ft_print_s(va_arg(*arg_ptr, char *));  
 	if (*s == 'd' || *s == 'i')
-		ft_print_d(va_arg(*arg_ptr, int));
+		tokensize = ft_print_d(va_arg(*arg_ptr, int));
 	if (*s == 'u')
-		ft_print_u(va_arg(*arg_ptr, unsigned));
+		tokensize = ft_print_u(va_arg(*arg_ptr, unsigned));
 	if (*s == 'x')
-		ft_print_x(va_arg(*arg_ptr, int));
+		tokensize = ft_print_x(va_arg(*arg_ptr, int));
 	if (*s == 'X')
-		ft_print_xmaj(va_arg(*arg_ptr, int));
+		tokensize = ft_print_xmaj(va_arg(*arg_ptr, int));
 	if (*s == 'p')
-		ft_print_p(va_arg(*arg_ptr, void *));
+		tokensize = ft_print_p((unsigned long)(va_arg(*arg_ptr, void *)));
 	if (*s == '%')
-		ft_print_c(*s);
+		tokensize = ft_print_c(*s);
 	return (tokensize);
 }
 
 int	ft_printf(const char *s, ...)
 {
 	int		i;
-	int	tokensize;
+	int	writesize;
 	int max;
 	max = 100;
 	va_list arg_ptr;
-	va_start(arg_ptr, max);                                                      
+	va_start(arg_ptr, max);                                   
 	i = 0;
+	writesize=0;
 	while (s[i])
 	{
-		if (s[i] != '%' && s[i] != '\\')
+		if (s[i] != '%' && s[i] != '\\'){
+			writesize++;
 			write(1, s + i++, 1);
-		if (s[i] == '%')
-			i = i + ft_print_by_value(&s[i], &arg_ptr);
+		}
+		if (s[i] == '%'){
+			writesize+=ft_print_by_value(&s[i], &arg_ptr);
+			i=i+2;
+		} 
 	}
 	va_end(arg_ptr);
-	return (0);
+	return (writesize);
+	// return (0);
 }
 
-int main(void)
+int dmain(void)
 {
 // 	char s[] = "|Bonjour|";
 // 	char s1[] = "|Tout le monde|";
@@ -112,12 +117,17 @@ int main(void)
 // 	unsigned u = 5555;
 	// int d = 545454;
 	int x = 545454;
-	// int u = 5454663543435;
-// 	// printf ("%d\n", '\0');
-// 	// ft_printf("MOI: %s %s %c %d %i \n", s, s1, c, d, i);
-// 	// ft_printf("MOI: %s %s %c %d %i %u \n", s, s1, c, d, i, u);
-// 	// printf("VRAI:%s %s %c %d %i %u \n", s, s1, c, d, i, u);
-	ft_printf("MOI: %p %x \n", &x, &x);
-	printf("VRAI:%p %x \n", &x, &x);
+	unsigned long p = 545454;
+	int print;
+	// print = printf(" %x ", 0);
+	// print = printf("%d", x);
+	// printf("|%d|\n");
+	// print = ft_printf("%d", x);
+	// print = ft_printf(" %x ", 0);
+	printf("VRAI:  %X \n", -1);
+	ft_printf("MOI:  %X \n", -1);
+	// printf("|%d|\n", print);
+	// printf("|%d|\n", print);
+	// ft_printf("|%c %c %c|\n", '0');
 }
 

@@ -6,13 +6,23 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:35:58 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/01/19 15:55:42 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/01/31 13:11:50 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
 
-void	ft_print_d(int d)
+int	ft_print_d(int d)
 {
-	ft_print_s(ft_itoa(d));
+	int count;
+	char *token_itoa;
+	token_itoa = ft_itoa(d);
+	ft_print_s(token_itoa);
+	count = (strlen(token_itoa));
+	free(token_itoa);
+	return (count);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_Xmaj.c                                    :+:      :+:    :+:   */
+/*   ft_print_xmaj.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 14:46:11 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/01/19 14:53:39 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/01/31 13:50:23 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,31 @@ char	hexcode_xmaj(int digit)
 		return ('A' + (digit - 10));
 }
 
-void	ft_print_xmaj(int x)
+int	ft_print_xmaj_(unsigned int x)
 {
 	char	c;
+	int count;
 
 	c = hexcode_xmaj(x % 16);
 	if (x > 0)
-		ft_print_xmaj(x / 16);
+		count = 1 + ft_print_xmaj_(x / 16);
 	else
-		return ;
+		return (0);
 	write(1, &c, 1);
+	return (count);
+}
+
+int	ft_print_xmaj(unsigned int x)
+{
+	char	c;
+	int count;
+
+	c = hexcode_xmaj(x % 16);
+	if (x == 0)
+	{
+		write(1, &c, 1);
+		return (1);
+	}
+	else
+		return (ft_print_xmaj_(x));
 }
