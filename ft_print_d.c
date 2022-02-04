@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:35:58 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/01/31 13:11:50 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/02 15:57:42 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 
 int	ft_print_d(int d)
 {
-	int count;
-	char *token_itoa;
+	char	*token_itoa;
+	int		count;
+
 	token_itoa = ft_itoa(d);
 	ft_print_s(token_itoa);
 	count = (strlen(token_itoa));

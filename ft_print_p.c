@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:11:05 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/01/31 13:01:25 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/02 17:12:52 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@
 
 #include "ft_printf.h"
 
-
 int	ft_print_p_(unsigned long p)
 {
 	char	c;
-	int count;
+	int		count;
+
 	count = 0;
 	c = hexcode(p % 16);
 	if (p > 0)
@@ -38,7 +38,6 @@ int	ft_print_p_(unsigned long p)
 	else
 	{
 		write(1, "0x", 2);
-		// write(1, &c, 1);
 		return (2);
 	}
 	write(1, &c, 1);
@@ -48,9 +47,9 @@ int	ft_print_p_(unsigned long p)
 int	ft_print_p(unsigned long p)
 {
 	char	c;
-	int count;
+	int		count;
+
 	count = 0;
-	
 	if (p == 0)
 	{
 		write(1, "0x0", 3);

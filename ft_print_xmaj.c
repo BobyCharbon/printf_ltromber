@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 14:46:11 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/01/31 13:50:23 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/02 15:57:55 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	hexcode_xmaj(int digit)
 int	ft_print_xmaj_(unsigned int x)
 {
 	char	c;
-	int count;
+	int		count;
 
 	c = hexcode_xmaj(x % 16);
 	if (x > 0)
@@ -37,7 +37,7 @@ int	ft_print_xmaj_(unsigned int x)
 int	ft_print_xmaj(unsigned int x)
 {
 	char	c;
-	int count;
+	int		count;
 
 	c = hexcode_xmaj(x % 16);
 	if (x == 0)

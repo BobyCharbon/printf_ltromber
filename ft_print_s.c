@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 12:23:29 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/01/31 12:49:15 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/02 17:08:01 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	ft_print_s(char *s)
 {
-	int count;
+	int	count;
+
 	count = 0;
 	if (!s)
 		s = ("(null)");
