@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:11:05 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/02 17:12:52 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/10 12:22:59 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	ft_print_p_(unsigned long p)
 
 int	ft_print_p(unsigned long p)
 {
-	char	c;
 	int		count;
 
 	count = 0;
