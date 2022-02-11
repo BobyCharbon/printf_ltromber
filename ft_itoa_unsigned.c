@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 10:59:25 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/10 12:16:17 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/11 15:56:16 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 /* ---------------------- NULL si l’allocation échoue. --------------------- */
 /* -------------------------------------------------------------------------- */
 
-static int	ft_nbrlen(unsigned int n)
+static int	ft_nbrlen_unsigned(unsigned int n)
 {
 	int	i;
 
@@ -49,7 +49,7 @@ char	*ft_itoa_unsigned(unsigned int n)
 	int		number_of_char;
 	int		i;
 
-	number_of_char = ft_nbrlen(n);
+	number_of_char = ft_nbrlen_unsigned(n);
 	s = malloc(sizeof(char) * (number_of_char + 1));
 	if (s == NULL)
 		return (NULL);
