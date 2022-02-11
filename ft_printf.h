@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 10:06:02 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/10 13:46:32 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/11 16:07:28 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
-# include "../libft_ltromber/libft/libft.h"
+# include "libft/libft.h"
 
 char	*ft_itoa_unsigned(unsigned int n);
 char	hexcode(int digit);
