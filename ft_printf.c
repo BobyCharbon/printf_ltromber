@@ -6,13 +6,12 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:58:31 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/10 12:29:43 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/10 13:50:41 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft_ltromber/libft/libft.h"
 #include "ft_printf.h"
-#include <stdarg.h>
 
 // caractères : cspdiuxX%
 /* -------------------------------------------------------------------------- */
@@ -90,9 +89,9 @@ int	ft_printf(const char *s, ...)
 	va_list	arg_ptr;
 
 	max = 100;
-	va_start(arg_ptr, max);
 	i = 0;
 	writesize = 0;
+	va_start(arg_ptr, s);
 	while (s[i])
 	{
 		if (s[i] != '%' && s[i] != '\\')
@@ -110,24 +109,24 @@ int	ft_printf(const char *s, ...)
 	return (writesize);
 }
 
-int	main(void)
-{
-// 	char s[] = "|Bonjour|";
-// 	char s1[] = "|Tout le monde|";
-// 	char c = 'a';
-// 	int d = 5555;
-// 	int i = 5555;
-// 	unsigned u = 5555;
-	// int d = 545454;
-	// int print;
-	// print = printf(" %x ", 0);
-	// print = printf("%d", x);
-	// printf("|%d|\n");
-	// print = ft_printf("%d", x);
-	// print = ft_printf(" %x ", 0);
-	printf("VRAI:  %X \n", -1);
-	ft_printf("MOI:  %X \n", -1);
-	// printf("|%d|\n", print);
-	// printf("|%d|\n", print);
-	// ft_printf("|%c %c %c|\n", '0');
-}
+// int	main(void)
+// {
+// // 	char s[] = "|Bonjour|";
+// // 	char s1[] = "|Tout le monde|";
+// // 	char c = 'a';
+// // 	int d = 5555;
+// // 	int i = 5555;
+// // 	unsigned u = 5555;
+// 	// int d = 545454;
+// 	// int print;
+// 	// print = printf(" %x ", 0);
+// 	// print = printf("%d", x);
+// 	// printf("|%d|\n");
+// 	// print = ft_printf("%d", x);
+// 	// print = ft_printf(" %x ", 0);
+// 	printf("VRAI:  %X \n", -1);
+// 	ft_printf("MOI:  %X \n", -1);
+// 	// printf("|%d|\n", print);
+// 	// printf("|%d|\n", print);
+// 	// ft_printf("|%c %c %c|\n", '0');
+// }

@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 13:05:21 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/10 12:22:47 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/10 13:50:12 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_print_u(unsigned int u)
 	int		count;
 
 	token = ft_itoa_unsigned(u);
-	count = strlen(token);
+	count = ft_strlen(token);
 	ft_print_s(token);
 	free(token);
 	return (count);
