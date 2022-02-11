@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 10:06:02 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/11 16:07:28 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/11 16:13:35 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 
 char	*ft_itoa_unsigned(unsigned int n);
 char	hexcode(int digit);
+char	*ft_itoa(int n);
+size_t	ft_strlen(const char *str);
 int		ft_printf(const char*s, ...);
 int		ft_print_c(char c);
 int		ft_print_s(char *s);
