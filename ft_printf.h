@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
+/*   By: ltromber <ltromber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 10:06:02 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/11 16:13:35 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/16 13:56:22 by ltromber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
-# include "libft/libft.h"
 
 char	*ft_itoa_unsigned(unsigned int n);
 char	hexcode(int digit);
