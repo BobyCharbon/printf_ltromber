@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:58:31 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/16 22:08:51 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/18 16:07:22 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,14 +111,13 @@ int	ft_printf(const char *s, ...)
 int	main(void)
 {
 	int	print;
-	char	c = "sasalmsklad";
-	char	d = 148;
+	char	c = 'd';
 
 	// print = printf(" %x ", 0);
 	// print = printf("%d", x);
 	// printf("|%d|\n");
-	print = ft_printf("%s %d\n", c, d);
-	print = ft_printf("%d\n", c, d);
+	print = ft_printf("%s %d\n", c);
+	print = ft_printf("%d\n", c);
 	printf("VRAI:  %c \n", -1);
 	ft_printf("MOI:  %c \n", -1);
 	printf("|%d|\n", print);
