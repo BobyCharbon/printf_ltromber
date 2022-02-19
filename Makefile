@@ -1,43 +1,41 @@
 SRCS = ft_printf.c ft_print_c.c ft_print_d.c ft_print_x.c ft_print_xmaj.c ft_print_u.c ft_print_s.c ft_print_p.c ft_itoa_unsigned.c ft_itoa.c ft_strlen.c
-BONUS_SRCS = 
 
-OBJS= ${SRCS:.c=.o}
+HEADERS += ft_printf.h
 
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+OBJS = ${SRCS:.c=.o}
 
-CFLAGS = -Wall -Werror -Wextra
-NAME := libftprintf.a
+CFLAGS += -Wall
+CFLAGS += -Werror
+CFLAGS += -Wextra
+
+CC = clang
+
+NAME = libftprintf.a
 
 all: $(NAME)
 
-bonus:	$(BONUS_OBJS)
-		ar -rcs $(NAME) $(BONUS_OBJS)
-
-.c.o:
-	@echo Compiling $<
-	gcc -c $(CFLAGS) $< -o ${<:.c=.o}
-
 $(NAME): $(OBJS)
-	@echo make $(NAME)
 	ar -rcs $(NAME) $(OBJS)
+	@echo "OK"
 
-re:	fclean all
+$(OBJS): %.o: %.c $(HEADERS)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+
+re:	fclean
+	$(MAKE)
 
 clean:
-	@echo Cleaning out those old .o
-	
-	@rm -f $(OBJS) $(BONUS_OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	@echo Cleaning out that old $(NAME)
-	@rm -f $(NAME)
+	$(RM) $(NAME)
 
 out:
-	gcc -g $(CFLAGS) $(SRCS) $(SRCS_libft)
-	@./a.out
+	$(CC) -g $(CFLAGS) $(SRCS) && ./a.out
 
 cleanout:
-	rm a.out
+	$(RM) a.out
 
-.PHONY:        all clean fclean re
-
+.PHONY: all clean fclean re
+#.SILENT:
