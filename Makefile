@@ -21,8 +21,7 @@ $(NAME): $(OBJS)
 	@echo make $(NAME)
 	ar -rcs $(NAME) $(OBJS)
 
-re:	fclean $(NAME)
-	gcc -g $(SRCS) $(SRCS_libft)
+re:	fclean all
 
 clean:
 	@echo Cleaning out those old .o
