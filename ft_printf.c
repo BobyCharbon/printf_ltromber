@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:58:31 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/23 19:37:07 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/23 19:43:42 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@
 /* --------- malloc, free, write, va_start, va_arg, va_copy, va_end --------- */
 /* -------------------------------------------------------------------------- */
 
-int	ft_print_by_value(char *s, va_list *arg_ptr)
+int	ft_format(char *s, va_list *arg_ptr)
 {
 	int	tokensize;
 
@@ -89,16 +89,16 @@ int	ft_printf(const char *s, ...)
 	i = 0;
 	writesize = 0;
 	va_start(arg_ptr, s);
-	while (s[i])
+	while (s[i] != '\0')
 	{
-		if (s[i] != '%' && s[i] != '\\')
+		if (s[i] != PERCENT)
 		{
 			writesize++;
 			write(1, s + i++, 1);
 		}
-		if (s[i] == '%')
+		if (s[i] == PERCENT)
 		{
-			writesize += ft_print_by_value(&((char *) s)[i], &arg_ptr);
+			writesize += ft_format(&((char *) s)[i], &arg_ptr);
 			i = i + 2;
 		}
 	}
@@ -113,8 +113,8 @@ int	main(void)
 
 	print = ft_printf("%d\n", c);
 	print = ft_printf("%d\n", c);
-	printf("VRAI:  %c \n", c);
-	ft_printf("MOI:  %c \n", c);
+	printf("VRAI: \\ %c \n", c);
+	ft_printf("MOI: \\ %c \n", c);
 	printf("|%d|\n", print);
 	printf("|%d|\n", print);
 	// ft_printf("|%c %c %c|\n", '0');
