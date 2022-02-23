@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:58:31 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/19 16:01:20 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/23 19:37:07 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,8 @@ int	ft_printf(const char *s, ...)
 {
 	int		i;
 	int		writesize;
-	int		max;
 	va_list	arg_ptr;
 
-	max = 100;
 	i = 0;
 	writesize = 0;
 	va_start(arg_ptr, s);
