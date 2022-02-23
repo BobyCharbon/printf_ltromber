@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:58:31 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/23 19:43:42 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/23 19:50:02 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,23 +62,28 @@ int	ft_format(char *s, va_list *arg_ptr)
 	tokensize = 0;
 	s++;
 	if (*s == 'c')
-		tokensize = ft_print_c((va_arg(*arg_ptr, int)));
+		tokensize = ft_format_c((va_arg(*arg_ptr, int)));
 	if (*s == 's')
-		tokensize = ft_print_s(va_arg(*arg_ptr, char *));
+		tokensize = ft_format_s(va_arg(*arg_ptr, char *));
 	if (*s == 'd' || *s == 'i')
-		tokensize = ft_print_d(va_arg(*arg_ptr, int));
+		tokensize = ft_format_d(va_arg(*arg_ptr, int));
 	if (*s == 'u')
-		tokensize = ft_print_u(va_arg(*arg_ptr, unsigned));
+		tokensize = ft_format_u(va_arg(*arg_ptr, unsigned));
 	if (*s == 'x')
-		tokensize = ft_print_x(va_arg(*arg_ptr, int));
+		tokensize = ft_format_x(va_arg(*arg_ptr, int));
 	if (*s == 'X')
-		tokensize = ft_print_xmaj(va_arg(*arg_ptr, int));
+		tokensize = ft_format_xmaj(va_arg(*arg_ptr, int));
 	if (*s == 'p')
-		tokensize = ft_print_p((unsigned long)(va_arg(*arg_ptr, void *)));
+		tokensize = ft_format_p((unsigned long)(va_arg(*arg_ptr, void *)));
 	if (*s == '%')
-		tokensize = ft_print_c(*s);
+		tokensize = ft_format_c(*s);
 	return (tokensize);
 }
+
+/* int	ft_format()
+{
+	static t_format_function format_functions[] = {ft_format}
+} */
 
 int	ft_printf(const char *s, ...)
 {
