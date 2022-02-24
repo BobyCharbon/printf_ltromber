@@ -6,13 +6,13 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:11:05 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/23 19:48:50 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/24 14:09:45 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_format_p_(unsigned long p)
+int	ft_print_p_(unsigned long p)
 {
 	char	c;
 	int		count;
@@ -20,7 +20,7 @@ int	ft_format_p_(unsigned long p)
 	count = 0;
 	c = hexcode(p % 16);
 	if (p > 0)
-		count = 1 + ft_format_p_(p / 16);
+		count = 1 + ft_print_p_(p / 16);
 	else
 	{
 		write(1, "0x", 2);
@@ -30,7 +30,7 @@ int	ft_format_p_(unsigned long p)
 	return (count);
 }
 
-int	ft_format_p(unsigned long p)
+int	ft_print_p(unsigned long p)
 {
 	int		count;
 
@@ -41,5 +41,5 @@ int	ft_format_p(unsigned long p)
 		return (3);
 	}
 	else
-		return (ft_format_p_(p));
+		return (ft_print_p_(p));
 }

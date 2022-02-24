@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 13:41:35 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/23 19:49:10 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/24 14:10:17 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	hexcode(int digit)
 		return ('a' + (digit - 10));
 }
 
-int	ft_format_x_(unsigned int x)
+int	ft_print_x_(unsigned int x)
 {
 	char	c;
 	int		count;
@@ -28,14 +28,14 @@ int	ft_format_x_(unsigned int x)
 	count = 0;
 	c = hexcode(x % 16);
 	if (x > 0)
-		count = 1 + ft_format_x_(x / 16);
+		count = 1 + ft_print_x_(x / 16);
 	else
 		return (0);
 	write(1, &c, 1);
 	return (count);
 }
 
-int	ft_format_x(unsigned int x)
+int	ft_print_x(unsigned int x)
 {
 	char	c;
 	int		count;
@@ -48,5 +48,5 @@ int	ft_format_x(unsigned int x)
 		return (1);
 	}
 	else
-		return (ft_format_x_(x));
+		return (ft_print_x_(x));
 }
