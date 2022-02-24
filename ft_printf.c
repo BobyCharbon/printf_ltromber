@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:58:31 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/24 14:03:15 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/24 14:26:01 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,31 +54,6 @@
 /*                        fonctions externes autorisées:                      */
 /* --------- malloc, free, write, va_start, va_arg, va_copy, va_end --------- */
 /* -------------------------------------------------------------------------- */
-
-/* int	ft_format(char *s, va_list *arg_ptr)
-{
-	int	tokensize;
-
-	tokensize = 0;
-	s++;
-	if (*s == 'c')
-		tokensize = ft_format_c((va_arg(*arg_ptr, int)));
-	if (*s == 's')
-		tokensize = ft_format_s(va_arg(*arg_ptr, char *));
-	if (*s == 'd' || *s == 'i')
-		tokensize = ft_format_d(va_arg(*arg_ptr, int));
-	if (*s == 'u')
-		tokensize = ft_format_u(va_arg(*arg_ptr, unsigned));
-	if (*s == 'x')
-		tokensize = ft_format_x(va_arg(*arg_ptr, int));
-	if (*s == 'X')
-		tokensize = ft_format_xmaj(va_arg(*arg_ptr, int));
-	if (*s == 'p')
-		tokensize = ft_format_p((unsigned long)(va_arg(*arg_ptr, void *)));
-	if (*s == '%')
-		tokensize = ft_format_c(*s);
-	return (tokensize);
-} */
 
 int	ft_format(const char *c, va_list *arg_ptr)
 {
@@ -131,11 +106,11 @@ int	main(void)
 	int	print;
 	char	c = 'c';
 
-	print = ft_printf("%d\n", c);
+	print = printf("%d\n", c);
 	print = ft_printf("%d\n", c);
 	printf("VRAI: \\ %c \n", c);
 	ft_printf("MOI: \\ %c \n", c);
 	printf("|%d|\n", print);
-	printf("|%d|\n", print);
+	ft_printf("|%d|\n", print);
 	// ft_printf("|%c %c %c|\n", '0');
 }
