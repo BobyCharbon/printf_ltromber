@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:58:31 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/23 19:50:02 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/24 14:03:15 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@
 /* --------- malloc, free, write, va_start, va_arg, va_copy, va_end --------- */
 /* -------------------------------------------------------------------------- */
 
-int	ft_format(char *s, va_list *arg_ptr)
+/* int	ft_format(char *s, va_list *arg_ptr)
 {
 	int	tokensize;
 
@@ -78,12 +78,26 @@ int	ft_format(char *s, va_list *arg_ptr)
 	if (*s == '%')
 		tokensize = ft_format_c(*s);
 	return (tokensize);
-}
-
-/* int	ft_format()
-{
-	static t_format_function format_functions[] = {ft_format}
 } */
+
+int	ft_format(const char *c, va_list *arg_ptr)
+{
+	static const t_format_function	format_functions[] = {ft_format_c,
+		ft_format_s, ft_format_p,
+		ft_format_d, ft_format_i,
+		ft_format_u, ft_format_x,
+		ft_format_xmaj};
+	int								i;
+
+	i = 0;
+	while (FORMAT[i] != '\0')
+	{
+		if (FORMAT[i] == c)
+			return (format_functions[i]);
+		i++;
+	}
+	return (write(1, &c, sizeof(c)));
+}
 
 int	ft_printf(const char *s, ...)
 {
@@ -103,8 +117,9 @@ int	ft_printf(const char *s, ...)
 		}
 		if (s[i] == PERCENT)
 		{
+			i++;
 			writesize += ft_format(&((char *) s)[i], &arg_ptr);
-			i = i + 2;
+			// i = i + 2;
 		}
 	}
 	va_end(arg_ptr);
@@ -114,7 +129,7 @@ int	ft_printf(const char *s, ...)
 int	main(void)
 {
 	int	print;
-	char	c = 'd';
+	char	c = 'c';
 
 	print = ft_printf("%d\n", c);
 	print = ft_printf("%d\n", c);

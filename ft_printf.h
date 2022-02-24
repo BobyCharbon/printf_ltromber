@@ -21,7 +21,7 @@
 # include <unistd.h>
 # include <stddef.h>
 
-typedef int(*t_format_function)(t_printf *);
+typedef int(*t_format_function)(va_list *arg_ptr);
 
 char	*ft_itoa_unsigned(unsigned int n);
 char	hexcode(int digit);
@@ -31,6 +31,7 @@ int		ft_formatf(const char*s, ...);
 int		ft_format_c(char c);
 int		ft_format_s(char *s);
 int		ft_format_d(int d);
+int		ft_format_i(int d);
 int		ft_format_u(unsigned int u);
 int		ft_format_x(unsigned int x);
 int		ft_format_xmaj(unsigned int x);
