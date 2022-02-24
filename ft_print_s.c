@@ -6,13 +6,13 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 12:23:29 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/23 19:48:54 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/24 14:09:53 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_format_s(char *s)
+int	ft_print_s(char *s)
 {
 	int	count;
 

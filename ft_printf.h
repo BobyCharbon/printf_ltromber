@@ -21,19 +21,17 @@
 # include <unistd.h>
 # include <stddef.h>
 
-typedef int(*t_format_function)(t_printf *);
 
 char	*ft_itoa_unsigned(unsigned int n);
 char	hexcode(int digit);
 char	*ft_itoa(int n);
 size_t	ft_strlen(const char *str);
-int		ft_formatf(const char*s, ...);
-int		ft_format_c(char c);
-int		ft_format_s(char *s);
-int		ft_format_d(int d);
-int		ft_format_u(unsigned int u);
-int		ft_format_x(unsigned int x);
-int		ft_format_xmaj(unsigned int x);
-int		ft_format_p(unsigned long p);
-
+int		ft_printf(const char*s, ...);
+int		ft_print_c(char c);
+int		ft_print_s(char *s);
+int		ft_print_d(int d);
+int		ft_print_u(unsigned int u);
+int		ft_print_x(unsigned int x);
+int		ft_print_xmaj(unsigned int x);
+int		ft_print_p(unsigned long p);
 #endif
