@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:58:31 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/24 14:08:11 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/24 16:54:53 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,6 @@ int	ft_format(char *s, va_list *arg_ptr)
 	return (tokensize);
 }
 
-/* int	ft_format()
-{
-	static t_format_function format_functions[] = {ft_format}
-} */
-
 int	ft_printf(const char *s, ...)
 {
 	int		i;
@@ -122,5 +117,4 @@ int	main(void)
 	ft_printf("MOI: \\ %c \n", c);
 	printf("|%d|\n", print);
 	printf("|%d|\n", print);
-	// ft_printf("|%c %c %c|\n", '0');
 }
