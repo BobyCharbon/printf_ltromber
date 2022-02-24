@@ -6,13 +6,12 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:58:31 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/17 15:38:58 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/24 16:54:53 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
-
 // caractères : cspdiuxX%
 /* -------------------------------------------------------------------------- */
 /*                                  ARGUMENTS:                                */
@@ -56,7 +55,7 @@
 /* --------- malloc, free, write, va_start, va_arg, va_copy, va_end --------- */
 /* -------------------------------------------------------------------------- */
 
-int	ft_print_by_value(char *s, va_list *arg_ptr)
+int	ft_format(char *s, va_list *arg_ptr)
 {
 	int	tokensize;
 
@@ -85,23 +84,21 @@ int	ft_printf(const char *s, ...)
 {
 	int		i;
 	int		writesize;
-	int		max;
 	va_list	arg_ptr;
 
-	max = 100;
 	i = 0;
 	writesize = 0;
 	va_start(arg_ptr, s);
-	while (s[i])
+	while (s[i] != '\0')
 	{
-		if (s[i] != '%' && s[i] != '\\')
+		if (s[i] != PERCENT)
 		{
 			writesize++;
 			write(1, s + i++, 1);
 		}
-		if (s[i] == '%')
+		if (s[i] == PERCENT)
 		{
-			writesize += ft_print_by_value(&((char *) s)[i], &arg_ptr);
+			writesize += ft_format(&((char *) s)[i], &arg_ptr);
 			i = i + 2;
 		}
 	}
@@ -112,16 +109,12 @@ int	ft_printf(const char *s, ...)
 int	main(void)
 {
 	int	print;
-	char	*c = "Hello";
+	char	c = 'd';
 
-	// print = printf(" %x ", 0);
-	// print = printf("%d", x);
-	// printf("|%d|\n");
-	print = printf("%-42ds\n", c);
-	print = ft_printf("%-42ds\n", c);
-	printf("VRAI:  %c \n", -1);
-	ft_printf("MOI:  %c \n", -1);
+	print = ft_printf("%d\n", c);
+	print = ft_printf("%d\n", c);
+	printf("VRAI: \\ %c \n", c);
+	ft_printf("MOI: \\ %c \n", c);
 	printf("|%d|\n", print);
 	printf("|%d|\n", print);
-	// ft_printf("|%c %c %c|\n", '0');
 }
