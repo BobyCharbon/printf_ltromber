@@ -6,13 +6,12 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:58:31 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/18 16:14:02 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/25 16:19:39 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
-
 // caractères : cspdiuxX%
 /* -------------------------------------------------------------------------- */
 /*                                  ARGUMENTS:                                */
@@ -56,7 +55,7 @@
 /* --------- malloc, free, write, va_start, va_arg, va_copy, va_end --------- */
 /* -------------------------------------------------------------------------- */
 
-int	ft_print_by_value(char *s, va_list *arg_ptr)
+int	ft_format(char *s, va_list *arg_ptr)
 {
 	int	tokensize;
 
@@ -85,23 +84,21 @@ int	ft_printf(const char *s, ...)
 {
 	int		i;
 	int		writesize;
-	int		max;
 	va_list	arg_ptr;
 
-	max = 100;
 	i = 0;
 	writesize = 0;
 	va_start(arg_ptr, s);
-	while (s[i])
+	while (s[i] != '\0')
 	{
-		if (s[i] != '%' && s[i] != '\\')
+		if (s[i] != PERCENT)
 		{
 			writesize++;
 			write(1, s + i++, 1);
 		}
-		if (s[i] == '%')
+		if (s[i] == PERCENT)
 		{
-			writesize += ft_print_by_value(&((char *) s)[i], &arg_ptr);
+			writesize += ft_format(&((char *) s)[i], &arg_ptr);
 			i = i + 2;
 		}
 	}
@@ -109,17 +106,43 @@ int	ft_printf(const char *s, ...)
 	return (writesize);
 }
 
-int	main(void)
+/* int	main(void)
 {
-	int d = 545454;
-	int print;
+	int	print;
+	char	c = 'd';
 
-	print = printf("%d\n", d);
-	print = printf("%d\n", d);
-	// print = ft_printf("%d", x);
-	// print = ft_printf(" %x ", 0);
-	printf("VRAI:  %d \n", d);
-	ft_printf("MOI:  %d \n", d);
+	print = ft_printf("%d\n", c);
+	print = ft_printf("%d\n", c);
+	printf("VRAI: \\ %c \n", c);
+	ft_printf("MOI: \\ %c \n", c);
 	printf("|%d|\n", print);
 	printf("|%d|\n", print);
-}
+} */
+
+// TESTEUR GOTAGA:
+
+/* int    main()
+{
+    int res;
+    int bot;
+    res = ft_printf("%x\n", 42);
+    bot = printf("%x\n", 42);
+    int res1;
+    int bot1;
+    res1 = ft_printf("%d\n", 56);
+    bot1 = printf("%d\n", 56);
+    int res2;
+    int bot2;
+    res2 = ft_printf("%s\n", "houlalala");
+    bot2 = printf("%s\n", "houlalala");
+    int res3;
+    int bot3;
+    res3 = ft_printf("%s\n", "32f2e234de");
+    bot3 = printf("%s\n", "32f2e234de");
+    //printf("resultat perso %d\nresultat ordi %d\n", res, bot);
+    printf("resultat perso1 %d\nresultat ordi1 %d\n", res1, bot1);
+    printf("resultat perso2 %d\nresultat ordi2 %d\n", res2, bot2);
+    printf("resultat perso3 %d\nresultat ordi3 %d\n", res3, bot3);
+    printf("resultat pnt %p\nresultat pnt %p\n", &res3, &bot3);
+    return (0);
+} */

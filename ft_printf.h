@@ -3,20 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltromber <ltromber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/14 10:06:02 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/16 13:56:22 by ltromber         ###   ########.fr       */
+/*   Created: 2022/02/24 14:12:14 by ludovictrom       #+#    #+#             */
+/*   Updated: 2022/02/24 14:12:21 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# define PERCENT '%'
+# define FORMAT "cspdiuxX"
+
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
+
 
 char	*ft_itoa_unsigned(unsigned int n);
 char	hexcode(int digit);
@@ -30,5 +34,4 @@ int		ft_print_u(unsigned int u);
 int		ft_print_x(unsigned int x);
 int		ft_print_xmaj(unsigned int x);
 int		ft_print_p(unsigned long p);
-
 #endif
