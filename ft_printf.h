@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:12:14 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/24 14:12:21 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/02/25 16:26:45 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
-
 
 char	*ft_itoa_unsigned(unsigned int n);
 char	hexcode(int digit);
