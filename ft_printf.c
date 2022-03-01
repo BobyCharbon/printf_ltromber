@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:58:31 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/24 16:40:05 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/03/01 17:07:18 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@
 int	ft_format(const char *c, va_list *arg_ptr)
 {
 	static t_format_function	format_functions[] = {ft_format_c,
-		ft_format_s, ft_format_p,
+		((char **) ft_format_s), ft_format_p,
 		ft_format_d, ft_format_i,
 		ft_format_u, ft_format_x,
 		ft_format_xmaj};
@@ -92,16 +92,16 @@ int	ft_printf(const char *s, ...)
 		}
 		if (s[i] == PERCENT)
 		{
-			i++;
+			// i++;
 			writesize += ft_format(&((char *) s)[i], &arg_ptr);
-			// i = i + 2;
+			i = i + 2;
 		}
 	}
 	va_end(arg_ptr);
 	return (writesize);
 }
 
-int	main(void)
+/* int	main(void)
 {
 	int	print;
 	char	c = 'c';
@@ -113,4 +113,30 @@ int	main(void)
 	printf("|%d|\n", print);
 	ft_printf("|%d|\n", print);
 	// ft_printf("|%c %c %c|\n", '0');
+} */
+
+int    main()
+{
+    int res;
+    int bot;
+    res = ft_printf("%x\n", 42);
+    bot = printf("%x\n", 42);
+    int res1;
+    int bot1;
+    res1 = ft_printf("%d\n", 56);
+    bot1 = printf("%d\n", 56);
+    int res2;
+    int bot2;
+    res2 = ft_printf("%s\n", "houlalala");
+    bot2 = printf("%s\n", "houlalala");
+    int res3;
+    int bot3;
+    res3 = ft_printf("%s\n", "32f2e234de");
+    bot3 = printf("%s\n", "32f2e234de");
+    //printf("resultat perso %d\nresultat ordi %d\n", res, bot);
+    printf("resultat perso1 %d\nresultat ordi1 %d\n", res1, bot1);
+    printf("resultat perso2 %d\nresultat ordi2 %d\n", res2, bot2);
+    printf("resultat perso3 %d\nresultat ordi3 %d\n", res3, bot3);
+    printf("resultat pnt %p\nresultat pnt %p\n", &res3, &bot3);
+    return (0);
 }
