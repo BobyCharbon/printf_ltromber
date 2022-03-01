@@ -16,11 +16,13 @@
 #include <string.h>
 #include <math.h>
 
-int	ft_format_d(int d)
+int	ft_format_d(va_list *arg_ptr)
 {
 	char	*token_itoa;
 	int		count;
+	int		d;
 
+	d = va_arg(*arg_ptr, int);
 	token_itoa = ft_itoa(d);
 	ft_format_s(token_itoa);
 	count = (ft_strlen(token_itoa));

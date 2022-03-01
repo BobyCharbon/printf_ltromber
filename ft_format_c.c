@@ -12,8 +12,9 @@
 
 #include "ft_printf.h"
 
-int	ft_format_c(char c)
+int	ft_format_c(va_list *arg_ptr)
 {
+	const char c = va_arg(*arg_ptr, int);
 	write(1, &c, 1);
 	return (1);
 }

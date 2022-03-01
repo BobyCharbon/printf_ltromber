@@ -55,7 +55,7 @@
 /* --------- malloc, free, write, va_start, va_arg, va_copy, va_end --------- */
 /* -------------------------------------------------------------------------- */
 
-int	ft_format(const char *c, va_list *arg_ptr)
+int	ft_format(const char c, va_list *arg_ptr)
 {
 	static t_format_function	format_functions[] = {ft_format_c,
 		ft_format_s, ft_format_p,
@@ -68,7 +68,7 @@ int	ft_format(const char *c, va_list *arg_ptr)
 	while (FORMAT[i] != '\0')
 	{
 		if (FORMAT[i] == c)
-			return (format_functions[i]);
+			return (format_functions[i](arg_ptr));
 		i++;
 	}
 	return (write(1, &c, sizeof(c)));
@@ -93,7 +93,7 @@ int	ft_printf(const char *s, ...)
 		if (s[i] == PERCENT)
 		{
 			// i++;
-			writesize += ft_format(&((char *) s)[i], &arg_ptr);
+			writesize += ft_format(s[i], &arg_ptr);
 			i = i + 2;
 		}
 	}

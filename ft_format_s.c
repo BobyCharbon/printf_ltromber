@@ -12,10 +12,11 @@
 
 #include "ft_printf.h"
 
-int	ft_format_s(char *s)
+int	ft_format_s(va_list *arg_ptr)
 {
 	int	count;
 
+	char *s = va_arg(*arg_ptr, char *);
 	count = 0;
 	if (!s)
 		s = ("(null)");

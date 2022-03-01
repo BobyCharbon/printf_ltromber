@@ -23,18 +23,19 @@
 
 typedef int(*t_format_function)(va_list *arg_ptr);
 
+
 char	*ft_itoa_unsigned(unsigned int n);
 char	hexcode(int digit);
 char	*ft_itoa(int n);
 size_t	ft_strlen(const char *str);
+int	ft_format_c(va_list *arg_ptr);
+int	ft_format_s(va_list *arg_ptr);
+int	ft_format_d(va_list *arg_ptr);
+int	ft_format_i(va_list *arg_ptr);
+int	ft_format_u(va_list *arg_ptr);
+int	ft_format_x(va_list *arg_ptr);
+int	ft_format_xmaj(va_list *arg_ptr);
+int	ft_format_p(va_list *arg_ptr);
 int		ft_formatf(const char*s, ...);
-int		ft_format_c(char c);
-int		ft_format_s(char *s);
-int		ft_format_d(int d);
-int		ft_format_i(int d);
-int		ft_format_u(unsigned int u);
-int		ft_format_x(unsigned int x);
-int		ft_format_xmaj(unsigned int x);
-int		ft_format_p(unsigned long p);
 
 #endif

@@ -35,11 +35,12 @@ int	ft_format_x_(unsigned int x)
 	return (count);
 }
 
-int	ft_format_x(unsigned int x)
+int	ft_format_x(va_list *arg_ptr)
 {
 	char	c;
 	int		count;
 
+	unsigned int x = va_arg(*arg_ptr, unsigned int);
 	count = 0;
 	c = hexcode(x % 16);
 	if (x == 0)

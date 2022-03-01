@@ -12,14 +12,15 @@
 
 #include "ft_printf.h"
 
-int	ft_format_u(unsigned int u)
+int	ft_format_u(va_list *arg_ptr)
 {
 	char	*token;
 	int		count;
 
+	unsigned long u = va_arg(*arg_ptr, unsigned long);
 	token = ft_itoa_unsigned(u);
 	count = ft_strlen(token);
-	ft_format_s(token);
+	write(1, token, count);
 	free(token);
 	return (count);
 }

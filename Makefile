@@ -2,7 +2,9 @@ SRCS = ft_printf.c ft_format_c.c ft_format_d.c ft_format_i.c ft_format_x.c ft_fo
 
 HEADERS += ft_printf.h
 
-OBJS = ${SRCS:.c=.o}
+PATH_OBJS = objs/
+
+OBJS = $(patsubst %.c, $(PATH_OBJS)/%.o, $(SRCS))
 
 #CFLAGS += -Wall
 #CFLAGS += -Werror
@@ -14,19 +16,22 @@ NAME = libftprintf.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(PATH_OBJS) $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
 	@echo "OK"
 
-$(OBJS): %.o: %.c $(HEADERS)
+$(OBJS): $(PATH_OBJS)/%.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+
+$(PATH_OBJS):
+	mkdir $@
 
 re:	fclean
 	$(MAKE)
 
 clean:
-	$(RM) $(OBJS) $(BONUS_OBJS)
+	$(RM) -R $(PATH_OBJS) $(BONUS_OBJS)
 
 fclean: clean
 	$(RM) $(NAME)

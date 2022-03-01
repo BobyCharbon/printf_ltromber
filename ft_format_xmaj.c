@@ -34,10 +34,12 @@ int	ft_format_xmaj_(unsigned int x)
 	return (count);
 }
 
-int	ft_format_xmaj(unsigned int x)
+int	ft_format_xmaj(va_list *arg_ptr)
 {
 	char	c;
+	int		count;
 
+	unsigned int x = va_arg(*arg_ptr, unsigned int);
 	c = hexcode_xmaj(x % 16);
 	if (x == 0)
 	{

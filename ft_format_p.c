@@ -14,9 +14,24 @@
 
 int	ft_format_p_(unsigned long p)
 {
+	int		count;
+
+	count = 0;
+	if (p == 0)
+	{
+		write(1, "0x0", 3);
+		return (3);
+	}
+	else
+		return (ft_format_p_(p));
+}
+
+int	ft_format_p(va_list *arg_ptr)
+{
 	char	c;
 	int		count;
 
+	unsigned long p = va_arg(*arg_ptr, unsigned long);
 	count = 0;
 	c = hexcode(p % 16);
 	if (p > 0)
@@ -28,18 +43,4 @@ int	ft_format_p_(unsigned long p)
 	}
 	write(1, &c, 1);
 	return (count);
-}
-
-int	ft_format_p(unsigned long p)
-{
-	int		count;
-
-	count = 0;
-	if (p == 0)
-	{
-		write(1, "0x0", 3);
-		return (3);
-	}
-	else
-		return (ft_format_p_(p));
 }
