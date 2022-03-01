@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:58:31 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/03/01 17:07:18 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/03/01 17:16:02 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@
 int	ft_format(const char *c, va_list *arg_ptr)
 {
 	static t_format_function	format_functions[] = {ft_format_c,
-		((char **) ft_format_s), ft_format_p,
+		ft_format_s, ft_format_p,
 		ft_format_d, ft_format_i,
 		ft_format_u, ft_format_x,
 		ft_format_xmaj};
