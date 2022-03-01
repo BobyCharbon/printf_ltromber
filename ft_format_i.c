@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:35:58 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/24 13:55:54 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/03/01 19:24:31 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_format_i(va_list *arg_ptr)
 
 	d = va_arg(*arg_ptr, int);
 	token_itoa = ft_itoa(d);
-	ft_format_s(token_itoa);
+	ft_format_s(&token_itoa);
 	count = (ft_strlen(token_itoa));
 	free(token_itoa);
 	return (count);
