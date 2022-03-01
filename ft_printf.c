@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:58:31 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/02/25 16:19:39 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/03/01 17:24:20 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,11 @@ int	ft_printf(const char *s, ...)
 	return (writesize);
 }
 
+int	ft_putnbr(*arg_ptr, int base)
+{
+	
+}
+
 /* int	main(void)
 {
 	int	print;
@@ -121,7 +126,7 @@ int	ft_printf(const char *s, ...)
 
 // TESTEUR GOTAGA:
 
-/* int    main()
+int    main()
 {
     int res;
     int bot;
@@ -145,4 +150,4 @@ int	ft_printf(const char *s, ...)
     printf("resultat perso3 %d\nresultat ordi3 %d\n", res3, bot3);
     printf("resultat pnt %p\nresultat pnt %p\n", &res3, &bot3);
     return (0);
-} */
+}
