@@ -9,10 +9,23 @@ int ft_format_c(va_list args)
 	return (write(1, &c, 1));
 }
 
+int ft_format_s(va_list args)
+{
+	char *str;
+	int i;
+	i = 0;
+	str = va_arg(args, char *);
+	while (str[i] != '\0')
+		i++;
+	return(write(1, str, sizeof(char) * i));
+}
+
 int ft_format(char str, va_list args)
 {
 	if (str == 'c')
 		ft_format_c(args);
+	if (str == 's')
+		ft_format_s(args);
 	return (0);
 }
 
@@ -26,7 +39,7 @@ int ft_printf(char *str, ...)
 	while(str[i] != '\0')
 	{
 		if(str[i] != '%')
-			ret += write(1, &str[i], sizeof(str));
+			ret += write(1, &str[i], 1);
 		else
 		{
 			i++;
@@ -40,9 +53,9 @@ int ft_printf(char *str, ...)
 
 int main (void)
 {
-	char c;
-	// char *str;
-	// str = "str";
-	c = 'c';
-	ft_printf("%c\n", c);
+	// char c;
+	char *str;
+	str = "str";
+	// c = 'c';
+	ft_printf("%s\n", str);
 }
