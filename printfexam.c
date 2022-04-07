@@ -94,7 +94,7 @@ int main (void)
 	printf("RET VRAI      :%d\n", ret);
 	ft_printf("RET MOI       :%d\n\n", ret2);
 
-	ret = printf("D(VRAI) :%d\n", d);
+	ret = printf("D(VRAI) :\033[31;01m%d\n\033[00m", d);
 	ret2 = ft_printf("D       :%d\n", d);
 	printf("RET VRAI      :%d\n", ret);
 	ft_printf("RET MOI       :%d\n\n", ret2);
