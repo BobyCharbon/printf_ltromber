@@ -1,4 +1,4 @@
-SRCS = printf.c
+SRCS = printfexam.c
 
 HEADERS += ft_printf.h
 
