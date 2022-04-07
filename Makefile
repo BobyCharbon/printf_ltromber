@@ -4,9 +4,9 @@ HEADERS += ft_printf.h
 
 OBJS = ${SRCS:.c=.o}
 
-#CFLAGS += -Wall
-#FLAGS += -Werror
-#CFLAGS += -Wextra
+CFLAGS += -Wall
+FLAGS += -Werror
+CFLAGS += -Wextra
 
 CC = clang
 

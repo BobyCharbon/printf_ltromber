@@ -1,7 +1,14 @@
 #include <unistd.h>
 #include <stdarg.h>
+#include <stdio.h>
 
-int	printf(char *s, ...)
+int	format_d(int i);
+int	format_s(char *s);
+int	ft_printf(char *s, ...);
+int	ft_putchar(char c);
+int	ft_putnbr(unsigned int i, int base);
+
+int	ft_printf(char *s, ...)
 {
 	int	count = 0;
 	int i = 0;
@@ -17,17 +24,17 @@ int	printf(char *s, ...)
 			if (s[i] == 'd')
 				count += format_d(va_arg(args, int));
 			if (s[i] == 'x')
-				count += putnbr(va_arg(args, unsigned int), 16);
+				count += ft_putnbr(va_arg(args, unsigned int), 16);
 		}
 		else
-			count += putchar(s[i]);
+			count += ft_putchar(s[i]);
 		i++;
 	}
 	va_end(args);
 	return (count);
 }
 
-int	putchar(char c)
+int	ft_putchar(char c)
 {
 	write(1, &c, 1);
 	return (1);
@@ -41,7 +48,7 @@ int	format_s(char *s)
 		s = "(null)";
 	while (s[i])
 	{
-		putchar(s[i]);
+		ft_putchar(s[i]);
 		i++;
 	}
 	return (i);
@@ -54,21 +61,46 @@ int	format_d(int i)
 	if (i < 0)
 	{
 		i *= -1;
-		count += putchar('-');
+		count += ft_putchar('-');
 	}
-	count += putnbr(i, 10);
+	count += ft_putnbr(i, 10);
 	return (count);
 }
 
-int	putnbr(unsigned int i, int base)
+int	ft_putnbr(unsigned int i, int base)
 {
 	char	*arr = "0123456789abcdef";
 	int		count = 0;
 	int		n;
 
 	if (i / base != 0)
-		count += putnbr(i / base, base);
+		count += ft_putnbr(i / base, base);
 	n = i % base;
 	count += write(1, &arr[n], 1);
 	return (count);
+}
+
+int main (void)
+{
+	char *s = "str";
+	unsigned int x = s;
+	int d = -12345;
+	
+	int ret;
+	int ret2;
+
+	ret = printf("X(VRAI) :%x\n", x);
+	ret2 = ft_printf("X       :%x\n", x);
+	printf("RET VRAI      :%d\n", ret);
+	ft_printf("RET MOI       :%d\n\n", ret2);
+
+	ret = printf("D(VRAI) :%d\n", d);
+	ret2 = ft_printf("D       :%d\n", d);
+	printf("RET VRAI      :%d\n", ret);
+	ft_printf("RET MOI       :%d\n\n", ret2);
+
+	ret = printf("S(VRAI) :%s\n", s);
+	ret2 = ft_printf("S       :%s\n", s);
+	printf("RET VRAI      :%d\n", ret);
+	ft_printf("RET MOI       :%d\n\n", ret2);
 }
