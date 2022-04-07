@@ -13,9 +13,9 @@ int	printf(char *s, ...)
 		{
 			i++;
 			if (s[i] == 's')
-				count += handle_s(va_arg(args, char *));
+				count += format_s(va_arg(args, char *));
 			if (s[i] == 'd')
-				count += handle_d(va_arg(args, int));
+				count += format_d(va_arg(args, int));
 			if (s[i] == 'x')
 				count += putnbr(va_arg(args, unsigned int), 16);
 		}
@@ -33,7 +33,7 @@ int	putchar(char c)
 	return (1);
 }
 
-int	handle_s(char *s)
+int	format_s(char *s)
 {
 	int	i = 0;
 
@@ -47,7 +47,7 @@ int	handle_s(char *s)
 	return (i);
 }
 
-int	handle_d(int i)
+int	format_d(int i)
 {
 	int	count = 0;
 
