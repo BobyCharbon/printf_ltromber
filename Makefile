@@ -1,4 +1,4 @@
-SRCS = printfexam.c
+SRCS = ft_inter.c ft_inter_gotaga.c
 
 HEADERS += ft_printf.h
 
