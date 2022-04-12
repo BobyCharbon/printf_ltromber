@@ -20,14 +20,14 @@
 int ft_inter (char *str1, char *str2);
 int ft_strlen(char *str);
 
-bool ft_check_occurence(char *stroccurence, char *str1, int len1)
+bool ft_check_occurence(char *stroccurence, char char_of_str1)
 {
 	int i = 0;
 	int j = 0;
 
 	while (stroccurence[j] != '\0')
 	{
-		if (stroccurence[j] == str1[len1])
+		if (stroccurence[j] == char_of_str1)
 			return (true);
 		else
 			j++;
@@ -55,7 +55,7 @@ int ft_inter (char *str1, char *str2)
 	{
 		if (str1[len1] == str2[len2])
 		{
-			if (ft_check_occurence(stroccurence, str1, len1) == false)
+			if (ft_check_occurence(stroccurence, str1[len1]) == false)
 			{
 				stroccurence[j++] = str1[len1];
 				occurence++;
@@ -86,8 +86,8 @@ int ft_inter (char *str1, char *str2)
 
 int main(void)
 {
-	char *str1 = "coucou";
-	char *str2 = "co";
+	char *str1 = "ccou";
+	char *str2 = "cco";
 	ft_inter(str1, str2);
 }
 
