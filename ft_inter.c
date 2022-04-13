@@ -23,7 +23,6 @@ bool ft_check_occurence(char *stroccurence, char char_of_str1);
 
 bool ft_check_occurence(char *stroccurence, char char_of_str1)
 {
-	int i = 0;
 	int j = 0;
 
 	while (stroccurence[j] != '\0')
@@ -38,7 +37,6 @@ bool ft_check_occurence(char *stroccurence, char char_of_str1)
 
 int ft_inter (char *str1, char *str2)
 {
-	int i = 0;
 	int j = 0;
 	// int strlen1 = ft_strlen(argv1);
 	// int strlen2 = ft_strlen(argv2);
