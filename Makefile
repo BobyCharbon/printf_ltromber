@@ -34,6 +34,13 @@ fclean: clean
 out:
 	$(CC) -g $(CFLAGS) $(SRCS) && ./a.out
 
+ac:
+	read ARGV1
+	read ARGV2
+	$(CC) -g $(FLAFS) $(SRCS) && ./a.out "$(ARGV1)" "$(ARGV2)" 
+#read ARGV3
+#"$(ARGV3)"
+
 cleanout:
 	$(RM) a.out
 
