@@ -1,4 +1,4 @@
-SRCS = ft_inter.c ft_inter_gotaga.c
+SRCS = ft_inter_gotaga.c ft_union.c
 
 HEADERS += ft_printf.h
 
