@@ -2,7 +2,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int	main(int argc, char **argv)
+
+int	ft_inter_gotaga(int argc, char **argv)
 {
 	int	used[255];
 	int	i, j;
@@ -16,7 +17,7 @@ int	main(int argc, char **argv)
 		while (i > 0)
 		{
 			j = 0;
-			while (argv[i][j])
+			while (argv[i][j] != '\0')
 			{
 				if (i == 2 && !used[(unsigned char)argv[i][j]])
 					used[(unsigned char)argv[i][j]] = 1;
@@ -34,3 +35,10 @@ int	main(int argc, char **argv)
 	// printf("STRING GOTAGA: %s\n", argv[3]);
 	return (0);
 }
+
+/* int main(void)
+{
+	char *str1 = "coucou";
+	char *str2 = "cava";
+	ft_inter_gotaga(str1, str2);
+} */
