@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 16:54:05 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/05/09 17:42:26 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/05/09 18:02:52 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,17 @@
 
 int	ft_putnbr(unsigned int digit, int base)
 {
-	int i = 0;
-		
+	char *temp = "0123456789abcdef";
+	int n = 0;
+	int count = 0;
+
+	if (digit / base != 0)
+	{
+		count += ft_putnbr(digit / base, base);
+	}
+	n = digit % base;
+	count += write(1, &temp[n], 1);
+	return (count);
 }
 
 char ft_format_s(char *str)
@@ -37,8 +46,7 @@ char ft_format_s(char *str)
 
 ft_format_d(int d)
 {
-	int i;
-	
+	int i = 0;
 }
 
 /* ft_format_x(unsigned int, base)
