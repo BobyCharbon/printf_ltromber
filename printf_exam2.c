@@ -6,7 +6,7 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 16:54:05 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/05/09 18:02:52 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/05/10 14:54:11 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	ft_putnbr(unsigned int digit, int base)
 }
 
 char ft_format_s(char *str)
-	int i = 0;
 {
+	int i = 0;
 
 	while (str[i])
 	{
@@ -44,15 +44,20 @@ char ft_format_s(char *str)
 	return (i);
 }
 
-ft_format_d(int d)
+int ft_format_d(int d)
 {
-	int i = 0;
+	int count = 0;
+	count = ft_putnbr(d, 10);
+	return (count);
 }
 
-/* ft_format_x(unsigned int, base)
+int ft_format_x(unsigned int x, int base)
 {
-	
-} */
+	int count = 0;
+
+	count = ft_putnbr(x, base);
+	return (count);
+}
 
 int ft_printf(char *str, ...)
 {
@@ -71,9 +76,9 @@ int ft_printf(char *str, ...)
 			if (str[i] == 's')
 				count += ft_format_s(va_arg(args, char *));
 			if (str[i] == 'd')
-				count += ft_format_d(args, int *);
-		/* 	if (str[i] == 'x')
-				count += ft_format_x(args, int *, 16); */
+				count += ft_format_d(va_arg(args, int));
+			if (str[i] == 'x')
+				count += ft_format_x(va_arg(args, unsigned int), 16);
 		}
 		else
 			count += write(1, &str[i], 1);
@@ -81,13 +86,30 @@ int ft_printf(char *str, ...)
 	}
 
 	va_end(args);
-	return (i);
+	return (count);
 }
 
 int main(void)
 {
 	char *str = "coucou";
+	int d = 123456789;
+	unsigned int x = 123456789;
 
-	ft_printf("RESULTAT: %s\n", str);	
-	// printf("RESULTAT: %s\n", str);	
+	int res1 = 0;
+	int res2 = 0;
+	
+	res1 = ft_printf("RESULTAT: %s\n", str);	
+	res2 = printf("RESULTAT: %s\n", str);
+	printf("RES 1 : %d\n", res1);
+	printf("RES 2 : %d\n\n", res2);
+
+	res1 = ft_printf("RESULTAT: %d\n", d);	
+	res2 = printf("RESULTAT: %d\n", d);
+	printf("RES 1 : %d\n", res1);
+	printf("RES 2 : %d\n\n", res2);
+
+	res1 = ft_printf("RESULTAT: %x\n", x);	
+	res2 = printf("RESULTAT: %x\n", x);
+	printf("RES 1 : %d\n", res1);
+	printf("RES 2 : %d\n\n", res2);
 }
