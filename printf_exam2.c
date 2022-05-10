@@ -6,15 +6,13 @@
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 16:54:05 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/05/10 14:54:11 by ludovictrom      ###   ########.fr       */
+/*   Updated: 2022/05/10 15:55:19 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 #include <stdarg.h>
-
-
 
 int	ft_putnbr(unsigned int digit, int base)
 {
@@ -47,7 +45,11 @@ char ft_format_s(char *str)
 int ft_format_d(int d)
 {
 	int count = 0;
-	count = ft_putnbr(d, 10);
+	if (d < 0)
+		d = d * -1;
+	
+	write(1, "-", 1);
+	count = ft_putnbr4(d, 10);
 	return (count);
 }
 
@@ -92,7 +94,7 @@ int ft_printf(char *str, ...)
 int main(void)
 {
 	char *str = "coucou";
-	int d = 123456789;
+	int d = -123456789;
 	unsigned int x = 123456789;
 
 	int res1 = 0;
