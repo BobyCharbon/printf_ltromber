@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 
-int	ft_inter_gotaga(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int	used[255];
 	int	i, j;
@@ -23,7 +23,7 @@ int	ft_inter_gotaga(int argc, char **argv)
 					used[(unsigned char)argv[i][j]] = 1;
 				else if (i == 1 && used[(unsigned char)argv[i][j]] == 1)
 				{
-					write(1, &argv[i][j], 1);
+					write(1, &argv[i][j], 1);   
 					used[(unsigned char)argv[i][j]] = 2;
 				}
 				j++;
@@ -35,10 +35,3 @@ int	ft_inter_gotaga(int argc, char **argv)
 	// printf("STRING GOTAGA: %s\n", argv[3]);
 	return (0);
 }
-
-/* int main(void)
-{
-	char *str1 = "coucou";
-	char *str2 = "cava";
-	ft_inter_gotaga(str1, str2);
-} */
